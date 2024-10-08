@@ -156,3 +156,75 @@ table tr:hover {
     color: #888; /* Color del texto del placeholder */
     font-style: italic; /* Estilo del texto del placeholder */
   }
+
+/* Contenedor para centrar el enlace */
+.github-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Estilo del enlace (mantener el anterior) */
+.github-link {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 1.2em;
+    color: #fff;
+    background-color: #333;
+    border: 2px solid #333;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-family: 'Arial', sans-serif;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.github-link:hover {
+    background-color: #555;
+    transform: scale(1.05);
+}
+
+.github-link:active {
+    background-color: #222;
+    transform: scale(0.98);
+}
+
+/* Contenedor para centrar las redes sociales */
+.social-media {
+    text-align: center;
+    margin-top: 40px;
+}
+
+/* Estilo para los enlaces de redes sociales */
+.social-link {
+    display: inline-block;
+    margin: 0 15px;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-family: 'Arial', sans-serif;
+}
+
+/* Estilos específicos para LinkedIn */
+.linkedin {
+    background-color: #0077b5; /* Color típico de LinkedIn */
+}
+
+.linkedin:hover {
+    background-color: #005582;
+    transform: scale(1.05);
+}
+
+/* Estilos específicos para Instagram */
+.instagram {
+    background-color: #e4405f; /* Color típico de Instagram */
+}
+
+.instagram:hover {
+    background-color: #c32f44;
+    transform: scale(1.05);
+}
