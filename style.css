@@ -92,6 +92,10 @@ table tr:nth-child(3) td {
     font-weight: bold;
     color: #f0f0f0; /* Color de texto suave */
 }
+.highlight{
+    font-size: xxx-large;
+    font-weight: bolder;
+}
 
 /* Estilo de botones */
 input[type="button"] {
@@ -111,8 +115,35 @@ input[type="button"]:hover {
     transform: translateY(-2px); 
 }
 
-/* Estilo hover */
+/* Estilo hover 
 table tr:hover {
     background-color: #444;
     transition: background-color 0.3s ease;
-}
+}*/
+
+
+/* Estilo para el input de jugadores */
+.input-players {
+    width: 80%; /* Asegurar que ocupe todo el espacio disponible */
+    padding: 10px;
+    margin: 5px 0;
+    border: 2px solid #444;
+    border-radius: 5px;
+    background-color: #2a2a2a; /* Fondo oscuro */
+    color: #fff; /* Color del texto */
+    font-size: 1.2em;
+    text-align: center; /* Alinear el texto al centro */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra similar a los botones */
+    transition: border-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .input-players:focus {
+    border-color: #d4af37; /* Destacar el borde en dorado cuando esté enfocado */
+    outline: none; /* Eliminar el contorno por defecto */
+    transform: translateY(-2px); /* Efecto de "levantar" el input cuando está activo */
+  }
+  
+  .input-players::placeholder {
+    color: #888; /* Color del texto del placeholder */
+    font-style: italic; /* Estilo del texto del placeholder */
+  }
