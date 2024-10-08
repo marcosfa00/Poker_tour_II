@@ -35,19 +35,28 @@ h2 {
 
 /* Estilo de la tabla */
 table {
-    width: 85%; /* Aumentar el ancho de la tabla */
+    width: 85%;
     margin: 0 auto;
     border-collapse: collapse;
-    background-color: #2a2a2a; /* Fondo de tabla más suave */
+    background-color: #2a2a2a;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
-    border-radius: 8px; 
-    overflow: hidden; 
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Ajustar ancho de las columnas */
+.nivel-col {
+    width: 10%; /* Más estrecha */
+}
+
+.ciegas-col {
+    width: 40%; /* Más ancha */
 }
 
 table td {
-    padding: 18px; /* Aumentar el padding de las celdas */
+    padding: 18px;
     text-align: center;
-    border: 1px solid #444; 
+    border: 1px solid #444;
     font-size: 1.2em;
 }
 

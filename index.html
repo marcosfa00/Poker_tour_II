@@ -15,58 +15,58 @@
     </section>
 
     <table>
-        <thead>
-          <tr>
-            <td>Nivel</td>
-            <td>Ciegas</td>
-            <td>Tiempo Restante</td>
-            <td>Jugadores</td>
-            <td>Premios</td>
-          </tr>
-          <tr>
-            <td>{{ nivel }}</td>
-            <td>
-              <span>Siguiente Nivel</span>
-              <span>{{ siguienteCiegas.small }}/{{ siguienteCiegas.big }}/{{ siguienteCiegas.ante }}</span>
-            </td>
-            <td>{{ tiempoFormateado }}</td>
-            <td>{{ jugadores }}/{{ maxJugadores }}</td>
-            <td>{{ premios }}€</td>
-          </tr>
-          <tr>
-            <td>SMALL</td>
-            <td>BIG</td>
-            <td>ANTE</td>
-            <td>Recompras</td>
-            <td>Add-On</td>
-          </tr>
-          <tr>
-            <td colspan="3" class="highlight">{{ smallBlind }} / {{ bigBlind }} / {{ ante }} </td>
-            <td>{{ recompras }}</td>
-            <td>{{ addOns }}</td>
-          </tr>
-          <tr>
-            <td>
-              <input type="number" v-model.number="jugadoresInput" placeholder="Nº jugadores" class="input-players">
-            </td>
-            <td colspan="2">
-              <input type="button" value="add players" @click="addJugadores">
-              <input type="button" value="remove players" @click="removeJugadores">
-              <input type="button" value="Pause" @click="pausarTemporizador"> <!-- Botón de pausa -->
-              <input type="button" value="Resume" @click="reanudarTemporizador"> <!-- Botón de reanudación -->
-              <input type="button" value="Probar Sonido" @click="probarAudio">
-            </td>
-            <td class="recompra">
-              <input type="button" value="+" @click="incrementarRecompras">
-              <input type="button" value="-" @click="decrementarRecompras">
-            </td>
-            <td class="add_on">
-              <input type="button" value="+" @click="incrementarAddOn">
-              <input type="button" value="-" @click="decrementarAddOn">
-            </td>
-          </tr>
-        </thead>
-      </table>
+      <thead>
+        <tr>
+          <td class="nivel-col">Nivel</td>
+          <td class="ciegas-col">Ciegas</td>
+          <td>Tiempo Restante</td>
+          <td>Jugadores</td>
+          <td>Premios</td>
+        </tr>
+        <tr>
+          <td>{{ nivel }}</td>
+          <td>
+            <span>Siguiente Nivel</span>
+            <span>{{ siguienteCiegas.small }}/{{ siguienteCiegas.big }}/{{ siguienteCiegas.ante }}</span>
+          </td>
+          <td>{{ tiempoFormateado }}</td>
+          <td>{{ jugadores }}/{{ maxJugadores }}</td>
+          <td>{{ premios }}€</td>
+        </tr>
+        <tr>
+          <td>SMALL</td>
+          <td>BIG</td>
+          <td>ANTE</td>
+          <td>Recompras</td>
+          <td>Add-On</td>
+        </tr>
+        <tr>
+          <td colspan="3" class="highlight">{{ smallBlind }} / {{ bigBlind }} / {{ ante }} </td>
+          <td>{{ recompras }}</td>
+          <td>{{ addOns }}</td>
+        </tr>
+        <tr>
+          <td>
+            <input type="number" v-model.number="jugadoresInput" placeholder="Nº jugadores" class="input-players">
+          </td>
+          <td colspan="2">
+            <input type="button" value="add players" @click="addJugadores">
+            <input type="button" value="remove players" @click="removeJugadores">
+            <input type="button" value="Pause" @click="pausarTemporizador">
+            <input type="button" value="Resume" @click="reanudarTemporizador">
+            <input type="button" value="Probar Sonido" @click="probarAudio">
+          </td>
+          <td class="recompra">
+            <input type="button" value="+" @click="incrementarRecompras">
+            <input type="button" value="-" @click="decrementarRecompras">
+          </td>
+          <td class="add_on">
+            <input type="button" value="+" @click="incrementarAddOn">
+            <input type="button" value="-" @click="decrementarAddOn">
+          </td>
+        </tr>
+      </thead>
+    </table>
   </div>
 
   <script src="app.js"></script>
