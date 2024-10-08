@@ -43,13 +43,13 @@ new Vue({
         tiempoRestante: 15 *60 , // Almacena el tiempo en segundos
         smallBlind: 100,
         bigBlind: 100,
-        ante: 100, // Inicialmente es igual al valor del big
+        ante: 0, // Inicialmente es igual al valor del big
         jugadores: 0,
         maxJugadores: 13,
         jugadoresInput: 0,
         recompras: 0,
         addOns: 0,
-        premios: 0
+        premios: 20
   },
   computed: {
     tiempoFormateado() {
@@ -117,6 +117,13 @@ new Vue({
         this.addOns -= 1;
         this.premios -=2;
       }
+    },
+
+    pausarTemporizador() {
+      clearInterval(this.intervalo); // Detiene el temporizador
+    },
+    reanudarTemporizador() {
+      this.iniciarTemporizador(); // Reinicia el temporizador
     }
   },
   mounted() {

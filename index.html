@@ -26,7 +26,7 @@
             <td>{{ nivel }}</td>
             <td>
               <span>Siguiente Nivel</span>
-              <span>{{ siguienteCiegas.small }}/{{ siguienteCiegas.big }}/{{ siguienteCiegas.big }}</span>
+              <span>{{ siguienteCiegas.small }}/{{ siguienteCiegas.big }}/{{ siguienteCiegas.ante }}</span>
             </td>
             <td>{{ tiempoFormateado }}</td>
             <td>{{ jugadores }}/{{ maxJugadores }}</td>
@@ -42,7 +42,7 @@
           <tr>
             <td class="highlight">{{ smallBlind }}</td>
             <td class="highlight">{{ bigBlind }}</td>
-            <td class="highlight">{{ bigBlind }}</td>
+            <td class="highlight">{{ ante }}</td>
             <td>{{ recompras }}</td>
             <td>{{ addOns }}</td>
           </tr>
@@ -53,6 +53,8 @@
             <td colspan="2">
               <input type="button" value="add players" @click="addJugadores">
               <input type="button" value="remove players" @click="removeJugadores">
+              <input type="button" value="Pause" @click="pausarTemporizador"> <!-- Botón de pausa -->
+              <input type="button" value="Resume" @click="reanudarTemporizador"> <!-- Botón de reanudación -->
             </td>
             <td class="recompra">
               <input type="button" value="+" @click="incrementarRecompras">
