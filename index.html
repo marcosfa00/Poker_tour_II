@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MARCOSFA POKER TOUR II</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+</head>
+<body>
+  <div id="app">
+    <section>
+      <h1>POKER TOUR II</h1>
+      <h2>Marcos FA</h2>
+    </section>
+
+    <table>
+        <thead>
+          <tr>
+            <td>Nivel</td>
+            <td>Ciegas</td>
+            <td>Tiempo Restante</td>
+            <td>Jugadores</td>
+            <td>Premios</td>
+          </tr>
+          <tr>
+            <td>{{ nivel }}</td>
+            <td>
+              <span>Siguiente Nivel</span>
+              <span>{{ siguienteCiegas.small }}/{{ siguienteCiegas.big }}/{{ siguienteCiegas.big }}</span>
+            </td>
+            <td>{{ tiempoFormateado }}</td>
+            <td>{{ jugadores }}/{{ maxJugadores }}</td>
+            <td>{{ premios }}€</td>
+          </tr>
+          <tr>
+            <td>SMALL</td>
+            <td>BIG</td>
+            <td>ANTE</td>
+            <td>Recompras</td>
+            <td>Add-On</td>
+          </tr>
+          <tr>
+            <td class="highlight">{{ smallBlind }}</td>
+            <td class="highlight">{{ bigBlind }}</td>
+            <td class="highlight">{{ bigBlind }}</td>
+            <td>{{ recompras }}</td>
+            <td>{{ addOns }}</td>
+          </tr>
+          <tr>
+            <td>
+              <input type="number" v-model.number="jugadoresInput" placeholder="Nº jugadores">
+            </td>
+            <td colspan="2">
+              <input type="button" value="add players" @click="addJugadores">
+              <input type="button" value="remove players" @click="removeJugadores">
+            </td>
+            <td class="recompra">
+              <input type="button" value="+" @click="incrementarRecompras">
+              <input type="button" value="-" @click="decrementarRecompras">
+            </td>
+            <td class="add_on">
+              <input type="button" value="+" @click="incrementarAddOn">
+              <input type="button" value="-" @click="decrementarAddOn">
+            </td>
+          </tr>
+        </thead>
+      </table>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
