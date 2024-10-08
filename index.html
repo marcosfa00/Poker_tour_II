@@ -5,6 +5,7 @@
   <title>MARCOSFA POKER TOUR II</title>
   <link rel="stylesheet" href="style.css">
   <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+  <audio id="nivelAudio" src="Nuevo_cambio_de_nivel.wav"></audio>
 </head>
 <body>
   <div id="app">
@@ -40,9 +41,7 @@
             <td>Add-On</td>
           </tr>
           <tr>
-            <td class="highlight">{{ smallBlind }}</td>
-            <td class="highlight">{{ bigBlind }}</td>
-            <td class="highlight">{{ ante }}</td>
+            <td colspan="3" class="highlight">{{ smallBlind }} / {{ bigBlind }} / {{ ante }} </td>
             <td>{{ recompras }}</td>
             <td>{{ addOns }}</td>
           </tr>
@@ -55,6 +54,7 @@
               <input type="button" value="remove players" @click="removeJugadores">
               <input type="button" value="Pause" @click="pausarTemporizador"> <!-- Botón de pausa -->
               <input type="button" value="Resume" @click="reanudarTemporizador"> <!-- Botón de reanudación -->
+              <input type="button" value="Probar Sonido" @click="probarAudio">
             </td>
             <td class="recompra">
               <input type="button" value="+" @click="incrementarRecompras">
