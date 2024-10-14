@@ -40,7 +40,7 @@ new Vue({
             { nivel: 35, small: 200000, big: 400000, ante: 400000 },
             { nivel: 36, small: 250000, big: 500000, ante: 500000 }
         ],
-        tiempoRestante: 15 , // Almacena el tiempo en segundos
+        tiempoRestante: 2 * 60, // Almacena el tiempo en segundos
         smallBlind: 100,
         bigBlind: 100,
         ante: 0, // Inicialmente es igual al valor del big
@@ -49,7 +49,8 @@ new Vue({
         jugadoresInput: 0,
         recompras: 0,
         addOns: 0,
-        premios: 20
+        premios: 20,
+        pausado: true
   },
   computed: {
     tiempoFormateado() {
@@ -68,13 +69,15 @@ new Vue({
       return num < 10 ? '0' + num : num; // Añade un cero delante si es menor que 10
     },
     iniciarTemporizador() {
-      this.intervalo = setInterval(() => {
-        if (this.tiempoRestante > 0) {
-          this.tiempoRestante--; // Decrementa el tiempo restante
-        } else {
-          this.aumentarNivel(); // Aumenta el nivel cuando termina el temporizador
-        }
-      }, 1000); // Actualiza cada segundo
+      if (!this.pausado) {
+        this.intervalo = setInterval(() => {
+          if (this.tiempoRestante > 0) {
+            this.tiempoRestante--;
+          } else {
+            this.aumentarNivel();
+          }
+        }, 1000);
+      }
     },
     aumentarNivel() {
       if (this.nivel < this.ciegas.length) {
@@ -82,13 +85,30 @@ new Vue({
         this.smallBlind = this.ciegas[this.nivel - 1].small;
         this.bigBlind = this.ciegas[this.nivel - 1].big;
         this.ante = this.ciegas[this.nivel - 1].ante;
-        this.tiempoRestante = 15 ; // Reinicia el temporizador a 15 minutos
-        
+        this.tiempoRestante = 2*60; // Reinicia el temporizador a 15 minutos
+    
         // Reproduce el sonido al cambiar de nivel
-        const audio = document.getElementById('nivelAudio');
-        audio.play();
+        const audioNivel = document.getElementById('nivelAudio');
+        audioNivel.play();
+    
+        // Verifica cada segundo si queda 1 minuto
+        this.intervalo1Min = setInterval(() => {
+          if (this.tiempoRestante === 60) { // Si queda 1 minuto
+            const audioPitido = new Audio('pitido_1min.mp3');
+            audioPitido.play();
+          }
+        }, 1000); // Revisa cada segundo
       } else {
         clearInterval(this.intervalo); // Detiene el temporizador si ya no hay más niveles
+      }
+    },
+    bajarNivel(){
+      if(this.nivel > 0){
+        this.nivel--;
+        this.smallBlind = this.ciegas[this.nivel - 1].small;
+        this.bigBlind = this.ciegas[this.nivel - 1].big;
+        this.ante = this.ciegas[this.nivel - 1].ante;
+        this.tiempoRestante = 15 ; // Reinicia el temporizador a 15 minutos
       }
     },
     addJugadores() {
@@ -119,7 +139,7 @@ new Vue({
       }
     },
     decrementarRecompras2() {
-      if (this.recompras > 0 ) {
+      if (this.recompras > 0) {
         this.recompras -= 1;
         this.premios -=7;
         this.jugadores -=1;
@@ -138,9 +158,11 @@ new Vue({
     },
 
     pausarTemporizador() {
+      this.pausado = true;
       clearInterval(this.intervalo); // Detiene el temporizador
     },
     reanudarTemporizador() {
+      this.pausado = false;
       this.iniciarTemporizador(); // Reinicia el temporizador
     },
     
@@ -151,7 +173,7 @@ new Vue({
     
   },
   mounted() {
-    this.iniciarTemporizador(); // Inicia el temporizador al montar el componente
+    
   },
   beforeDestroy() {
     clearInterval(this.intervalo); // Limpia el intervalo si se destruye el componente

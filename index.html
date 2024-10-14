@@ -29,8 +29,8 @@
         <h3>Tiempo Restante</h3>
         <div class="reloj">{{ tiempoFormateado }}</div>
         <div class="button-group">
-          <input type="button" value="Pause" @click="pausarTemporizador">
-          <input type="button" value="Resume" @click="reanudarTemporizador">
+          <button @click="reanudarTemporizador" v-if="pausado">Resume</button>
+          <button @click="pausarTemporizador" v-if="!pausado">Pause</button>
       </div>
       </div>
       <div class="card">
@@ -76,6 +76,9 @@
          
               <input type="button" value="Add Players" @click="addJugadores">
               <input type="button" value="Probar Sonido" @click="probarAudio">
+              <input type="button" value="Subir Nivel" @click="aumentarNivel">
+              <input type="button" value="Bajar Nivel" @click="bajarNivel">
+             
           
       </div>
   </div>
