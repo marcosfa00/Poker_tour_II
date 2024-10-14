@@ -11,71 +11,80 @@
   <div id="app">
     <section>
       <h1>POKER TOUR II</h1>
-      <h2>Marcos FA</h2>
     </section>
 
-    <table>
-      <thead>
-        <tr>
-          <td class="nivel-col">Nivel</td>
-          <td class="ciegas-col">Ciegas</td>
-          <td>Tiempo Restante</td>
-          <td>Jugadores</td>
-          <td>Premios</td>
-        </tr>
-        <tr>
-          <td>{{ nivel }}</td>
-          <td>
-            <span>Siguiente Nivel</span>
-            <span>{{ siguienteCiegas.small }}/{{ siguienteCiegas.big }}/{{ siguienteCiegas.ante }}</span>
-          </td>
-          <td>{{ tiempoFormateado }}</td>
-          <td>{{ jugadores }}/{{ maxJugadores }}</td>
-          <td>{{ premios }}€</td>
-        </tr>
-        <tr>
-          <td>SMALL</td>
-          <td>BIG</td>
-          <td>ANTE</td>
-          <td>Recompras</td>
-          <td>Add-On</td>
-        </tr>
-        <tr>
-          <td colspan="3" class="highlight">{{ smallBlind }} / {{ bigBlind }} / {{ ante }} </td>
-          <td>{{ recompras }}</td>
-          <td>{{ addOns }}</td>
-        </tr>
-        <tr>
-          <td>
-            <input type="number" v-model.number="jugadoresInput" placeholder="Nº jugadores" class="input-players">
-          </td>
-          <td colspan="2">
-            <input type="button" value="add players" @click="addJugadores">
-            <input type="button" value="remove players" @click="removeJugadores">
-            <input type="button" value="Pause" @click="pausarTemporizador">
-            <input type="button" value="Resume" @click="reanudarTemporizador">
-            <input type="button" value="Probar Sonido" @click="probarAudio">
-          </td>
-          <td class="recompra">
-            <input type="button" value="+" @click="incrementarRecompras">
-            <input type="button" value="-" @click="decrementarRecompras">
-          </td>
-          <td class="add_on">
-            <input type="button" value="+" @click="incrementarAddOn">
-            <input type="button" value="-" @click="decrementarAddOn">
-          </td>
-        </tr>
-      </thead>
-    </table>
-    <div class="github-container">
-      <a href="https://github.com/marcosfa00/Poker_tour_II" class="github-link">Visita mi repositorio en GitHub</a>
-  </div>
+    <div class="cards-container">
+      <div class="card">
+        <h3>Nivel Actual</h3>
+        <div class="nivel-actual">{{ nivel }}</div>
+      </div>
+      <div class="card-next-level">
+        <h3>Siguiente Nivel</h3>
+        <div class="siguiente-nivel">
+          <span>{{ siguienteCiegas.small }}/{{ siguienteCiegas.big }}/{{ siguienteCiegas.ante }}</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Tiempo Restante</h3>
+        <div class="reloj">{{ tiempoFormateado }}</div>
+        <div class="button-group">
+          <input type="button" value="Pause" @click="pausarTemporizador">
+          <input type="button" value="Resume" @click="reanudarTemporizador">
+      </div>
+      </div>
+      <div class="card">
+        <h3>Jugadores</h3>
+        <div class="jugadores-premios">
+          <div>{{ jugadores }}/{{ maxJugadores }}
+            <input type="button" value="-" @click="removeJugadores">
+          </div>
+        </div>
+        <h3>Premios</h3>
+        <div class="jugadores-premios">
+          <div>{{ premios }}€</div>
+        </div>
+      </div>
+    </div>
 
-  <div class="social-media"></div>
-    <a href="https://www.linkedin.com/in/marcosfavendano/" target="_blank" class="social-link linkedin">LinkedIn</a>
-    <a href="https://www.instagram.com/marcosfa_" target="_blank" class="social-link instagram">Instagram</a>
-</div>
-   </div>
+    <div class="table-container">
+      <h3>CIEGAS</h3>
+      <div class="row">
+        <div class="col">{{ smallBlind }} / {{ bigBlind }} / {{ ante }}</div>
+      </div>
+      <div class="row">
+        <div class="col">Recompras: {{ recompras }}
+          <div class="button-group">
+            <input type="button" value="Recompra" @click="incrementarRecompras">
+            <input type="button" value="Recompra + Add-On" @click="incrementarRecompras2">
+            <input type="button" value="Quitar Recompra" @click="decrementarRecompras">
+            <input type="button" value="Quitar Recompra + Add-On" @click="decrementarRecompras2">
+        </div>
+        </div>
+        <div class="col">Add-On: {{ addOns }}
+          <div class="button-group">
+            <input type="button" value="Add-On" @click="incrementarAddOn">
+            <input type="button" value="Quitar Add-On" @click="decrementarAddOn">
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="input-container">
+      <input type="number" v-model.number="jugadoresInput" placeholder="Nº jugadores" class="input-players">
+    
+         
+              <input type="button" value="Add Players" @click="addJugadores">
+              <input type="button" value="Probar Sonido" @click="probarAudio">
+          
+      </div>
+  </div>
+    <footer>
+      <div class="social-media">
+        <a class="github-link" href="https://github.com/tu-github" target="_blank">GitHub</a>
+        <a class="social-link" href="https://twitter.com/tu-twitter" target="_blank">Twitter</a>
+      </div>
+    </footer>
+  </div>
 
   <script src="app.js"></script>
 </body>
