@@ -40,7 +40,7 @@ new Vue({
             { nivel: 35, small: 200000, big: 400000, ante: 400000 },
             { nivel: 36, small: 250000, big: 500000, ante: 500000 }
         ],
-        tiempoRestante: 2 * 60, // Almacena el tiempo en segundos
+        tiempoRestante: 15 * 60, // Almacena el tiempo en segundos
         smallBlind: 100,
         bigBlind: 100,
         ante: 0, // Inicialmente es igual al valor del big
@@ -85,7 +85,7 @@ new Vue({
         this.smallBlind = this.ciegas[this.nivel - 1].small;
         this.bigBlind = this.ciegas[this.nivel - 1].big;
         this.ante = this.ciegas[this.nivel - 1].ante;
-        this.tiempoRestante = 2*60; // Reinicia el temporizador a 15 minutos
+        this.tiempoRestante = 15*60; // Reinicia el temporizador a 15 minutos
     
         // Reproduce el sonido al cambiar de nivel
         const audioNivel = document.getElementById('nivelAudio');
