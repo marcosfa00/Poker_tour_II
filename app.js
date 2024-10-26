@@ -4,7 +4,7 @@ new Vue({
         nivel: 1,
         ciegas: [
             { nivel: 1, small: 100, big: 100, ante: 0 },
-            { nivel: 2, small: 100, big: 200, ante: 100 },
+            { nivel: 2, small: 100, big: 100, ante: 100 },
             { nivel: 3, small: 100, big: 200, ante: 200 },
             { nivel: 4, small: 200, big: 300, ante: 300 },
             { nivel: 5, small: 300, big: 500, ante: 500 },
